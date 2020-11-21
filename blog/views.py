@@ -1,18 +1,8 @@
 from django.shortcuts import render
-
-pub_posts = [
-            {"title":"Blog Post 1",
-            "author":"Sanjay",
-            "content":"This is my first post",
-            "published_on":"20 nov 2020"},
-            {"title":"Blog Post 2",
-            "author":"Nivedita",
-            "content":"This is my second post",
-            "published_on":"21 nov 2020"}
-            ]
-
+from blog.models import Post
 # Create your views here.
 def home(request):
+    pub_posts = Post.objects.all()
     context = {"posts":pub_posts}
     return render(request, "blog/home.html", context)
 
