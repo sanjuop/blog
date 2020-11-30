@@ -1,5 +1,5 @@
 import os
-
+import json
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_project.settings')
 
 import django
@@ -15,3 +15,11 @@ from django.contrib.auth.models import User
 # all_posts = Post.objects.all()
 # for i in all_posts:
 #     print(i.author.pk)
+
+json_path = os.path.join(os.path.dirname(__file__), "posts.json")
+with open(json_path) as f:
+    posts_json = json.load(f)
+
+for post in posts_json:
+    P = Post(title=post["title"], content=post["content"], author_id=post["user_id"])
+    P.save()
