@@ -8,7 +8,6 @@ from django.views.generic import (
                                 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-
 # Create your views here.
 def home(request):
     pub_posts = Post.objects.all()

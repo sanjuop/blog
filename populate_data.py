@@ -24,11 +24,14 @@ from django.contrib.auth.models import User
 #     P = Post(title=post["title"], content=post["content"], author_id=post["user_id"])
 #     P.save()
 
-from django.core.paginator import Paginator
-posts = ['1', '2', '3', '4', '5']
-p = Paginator(posts, 2)
-p1 = p.page(1)
+# from django.core.paginator import Paginator
+# posts = ['1', '2', '3', '4', '5']
+# p = Paginator(posts, 2)
+# p1 = p.page(1)
 
-print(p1.has_next())
-print(p1.has_previous())
-print (p1.next_page_number())
+# print(p1.has_next())
+# print(p1.has_previous())
+# print (p1.next_page_number())
+EMAIL_HOST_USER = os.environ.get("EMAIL_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS")
+print(EMAIL_HOST_PASSWORD, EMAIL_HOST_USER)
