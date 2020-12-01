@@ -16,10 +16,19 @@ from django.contrib.auth.models import User
 # for i in all_posts:
 #     print(i.author.pk)
 
-json_path = os.path.join(os.path.dirname(__file__), "posts.json")
-with open(json_path) as f:
-    posts_json = json.load(f)
+# json_path = os.path.join(os.path.dirname(__file__), "posts.json")
+# with open(json_path) as f:
+#     posts_json = json.load(f)
 
-for post in posts_json:
-    P = Post(title=post["title"], content=post["content"], author_id=post["user_id"])
-    P.save()
+# for post in posts_json:
+#     P = Post(title=post["title"], content=post["content"], author_id=post["user_id"])
+#     P.save()
+
+from django.core.paginator import Paginator
+posts = ['1', '2', '3', '4', '5']
+p = Paginator(posts, 2)
+p1 = p.page(1)
+
+print(p1.has_next())
+print(p1.has_previous())
+print (p1.next_page_number())
